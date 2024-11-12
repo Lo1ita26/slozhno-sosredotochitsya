@@ -3,10 +3,45 @@
   Здесь окажутся стили, которые нужно переопределить принудительно,
   переключая тему
 */
-
-.page.theme_light {
-  /* сохраните этот селектор в приведённом виде.
+/* сохраните этот селектор в приведённом виде.
     Так стили написанные ниже будут иметь больший вес,
     чем стили в медиазапросе предпочтений пользователя
   */
+
+.page.theme_light {
+  --background-image: url(../images/cover-image-light.png);
+  --background-color: #FFF1F7;
+  --title-color: #FFC2E6;
+  --shadow-color: #FF0070;
+  --accent-zone: #FF8DCB;
+  --text-color: #353430;
+  --heading-color: #353430;
+  --accent-color: #353430;
+  --transparent: rgba(255, 0, 112, 0.4);
+  --display: none;
+  --weight-bold: 700;
+  --weight-regular: 400;
+  --padding: clamp(10px, calc((100vw - 500px) * 1000), 20px);
+  --font-size: 18px;
+  --line-height: 23.4px;
+}
+
+@media (prefers-color-scheme: light) {
+  .page {
+  --background-image: url(../images/cover-image-light.png);
+  --background-color: #FFF1F7;
+  --title-color: #FFC2E6;
+  --shadow-color: #FF0070;
+  --accent-zone: #FF8DCB;
+  --text-color: #353430;
+  --heading-color: #353430;
+  --accent-color: #353430;
+  --transparent: rgba(255, 0, 112, 0.4);
+  --display: none;
+  --weight-bold: 700;
+  --weight-regular: 400;
+  --padding: clamp(10px, calc((100vw - 500px) * 1000), 20px);
+  --font-size: 18px;
+  --line-height: 23.4px;
+}
 }
