@@ -157,7 +157,7 @@
 .content-title {
   color: var(--accent-color);
   font-size: var(--font-size);
-  padding-block-end: 10px; 
+  padding-block-end: 10px;
 }
 
 .card-list {
