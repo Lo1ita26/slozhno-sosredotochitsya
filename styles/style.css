@@ -1,15 +1,15 @@
- /* Основные стили проекта. Это стили для темы, которую вы верстаете первой. */
+/* Основные стили проекта. Это стили для темы, которую вы верстаете первой. */
 
 /* сохраните в разметке и стилях класс page. На его основе работает скрипт. */
 :root {
   --background-image: url(../images/cover-image-dark.png);
   --background-color: #000028;
-  --title-color:  #DB00FF;
-  --shadow-color: #FF0070;
-  --accent-zone: #FF0070;
-  --text-color: #F1B2CE;
+  --title-color: #db00ff;
+  --shadow-color: #ff0070;
+  --accent-zone: #ff0070;
+  --text-color: #f1b2ce;
   --heading-color: #000028;
-  --accent-color: #FF0070;
+  --accent-color: #ff0070;
   --transparent: rgba(255, 0, 112, 0.4);
   --display: block;
   --weight-bold: 700;
@@ -26,9 +26,9 @@
   background-position: center;
   background-size: cover;
   background-attachment: fixed;
-  font-family: 'IBM Plex Mono';
+  font-family: "IBM Plex Mono", monospace;
   font-size: var(--font-size);
-  line-height: var(--line-height)
+  line-height: var(--line-height);
 }
 
 .header {
@@ -101,6 +101,8 @@
 }
 
 .header__theme-menu-button {
+  min-width: 70px;
+  min-height: 26px;
   color: var(--accent-color);
   background-color: transparent;
   text-transform: lowercase;
@@ -113,21 +115,21 @@
   border: 1px solid var(--accent-color);
 }
 
-.header__theme-menu-item:hover {
+.header__theme-menu-button:hover {
   border: 1px solid var(--transparent);
 }
 
 .header__theme-menu-button:focus {
-   outline: none;
+  outline: none;
 }
 
 .header__theme-menu-button:focus-visible {
-  border-bottom: 1px solid var(--accent-zone);
+  border-bottom: 1px solid var(--transparent);
 }
 
 .header-title {
   color: var(--title-color);
-  font-size: 116px;
+  font-size: clamp(7.25rem, 7.0115rem + 1.0178vw, 7.5rem);
   text-shadow: 4px 4px 0 var(--shadow-color);
   line-height: 95.7px;
 }
@@ -146,12 +148,13 @@
   line-height: 23.4px;
 }
 
-.content {
+.main {
   margin: 40px 10px;
 }
 
-.reasons {
+.section {
   display: grid;
+  margin-block-start: 10px;
 }
 
 .content-title {
@@ -179,26 +182,16 @@
 }
 
 .link:focus {
-   outline: none;
+  outline: none;
 }
 
 .link:focus-visible {
   border: 1px solid var(--text-color);
 }
 
-.indicators {
-  display: grid;
-  margin-block-start: 10px;
-}
-
-.adviсes {
-  display: grid;
-  margin-block-start: 10px;
-}
-
 .additional-title {
   font-size: var(--font-size);
-  margin: 10px 0 10px 0;
+  margin: 10px 0 20px 0;
 }
 
 .font-regular-title {
@@ -206,7 +199,7 @@
 }
 
 .gallery {
-  margin-block-start: 10px;
+  margin-block-start: 30px;
 }
 
 .images {
@@ -216,7 +209,9 @@
 }
 
 .image {
-  inline-size: 355px;
+  inline-size: 100%;
+  object-fit: cover;
+  object-position: center;
 }
 
 .decorated-zone:before {
@@ -255,7 +250,7 @@
 
 .footer-title {
   color: var(--title-color);
-  font-size: 116px;
+  font-size: clamp(7.25rem, 7.0115rem + 1.0178vw, 7.5rem);
   text-shadow: 2px 2px 0 var(--shadow-color);
   line-height: 95.7px;
 }
@@ -294,11 +289,11 @@
     justify-self: end;
   }
 
-  .content {
+  .main {
     margin: 60px 20px;
   }
 
-  .reasons {
+  .section-why {
     grid-template-columns: 0.5fr 1fr;
     gap: 20px;
   }
@@ -307,23 +302,23 @@
     margin: 0 0 20px 0;
   }
 
-  .indicators {
+  .section-causes {
     margin-block-start: 40px;
     gap: 12px;
   }
 
-  .indicators-title {
+  .section-causes-title {
     max-width: 236px;
   }
 
-  .adviсes {
+  .section-adviсes {
     grid-template-columns: 0.5fr 1fr;
     gap: 20px;
     margin-block-start: 30px;
   }
 
-  .adviсes-title {
-   padding-block-start: 6px;
+  .section-adviсes-title {
+    padding-block-start: 8px;
   }
 
   .font-regular-title {
@@ -337,8 +332,8 @@
   .images {
     gap: 20px;
     margin-block-start: 20px;
-    grid-template-columns: 229px 230px 229px;
-    grid-template-rows: 192px 230px 318px;
+    grid-template-columns: 3;
+    grid-template-rows: 3;
   }
 
   .image {
@@ -368,15 +363,15 @@
   }
 
   .image-street {
-      grid-column-start: 2;
-      grid-column-end: 4;
-    }
+    grid-column-start: 2;
+    grid-column-end: 4;
+  }
 
   .footer-title {
-      font-size: 120px;
-      line-height: 99px;
+    font-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem);
+    line-height: 99px;
   }
-  }
+}
 
 @media (min-width: 1024px) {
   .header {
@@ -390,26 +385,33 @@
 
   .header__theme-menu-list {
     flex-direction: row;
-    gap: 25px;
+    gap: 10px;
   }
-  
-  .indicators-title {
+
+  .header-text {
+  margin-block-start: 17px;
+  }
+
+  .section-why, .section-adviсes{
+    grid-template-columns: 1fr 2.06fr;
+  }
+
+  .section-causes-title {
     max-width: 315px;
   }
 
-  .cards-indicators {
+  .section-causes .card-list {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     gap: 20px;
   }
 
   .images {
-    grid-template-columns: repeat(3, 315px);
-    grid-template-rows: 260px 315px 428px;
+    grid-template-columns: 3;
+    grid-template-rows: 3;
   }
 
   .footer-title {
-    font-size: 157px;
     line-height: 129.53px;
-}
+  }
 }
